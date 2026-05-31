@@ -1,0 +1,263 @@
+.app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.app-header h1 {
+  font-size: 34px;
+  letter-spacing: -0.5px;
+}
+
+.app-header p {
+  margin: 6px 0 0;
+  color: var(--text-dim);
+}
+
+/* Two-column layout: controls + preview | dropzone + process */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.panel h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+/* Mode toggle */
+.mode-toggle {
+  display: inline-flex;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 3px;
+  margin-bottom: 18px;
+}
+
+.mode-toggle button {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text-dim);
+  font: inherit;
+  font-weight: 500;
+  padding: 7px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.mode-toggle button.active {
+  background: var(--accent-strong);
+  color: #fff;
+}
+
+/* Fields */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.field > span {
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.field input[type='text'],
+.field input[type='number'],
+.field select {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+  padding: 10px 12px;
+}
+
+.field input[type='number'] {
+  width: 120px;
+}
+
+.field select {
+  cursor: pointer;
+}
+
+.field input[type='text']:focus,
+.field input[type='number']:focus,
+.field select:focus,
+.field input[type='file']:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.field input[type='file'] {
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.field input[type='range'] {
+  accent-color: var(--accent-strong);
+  width: 100%;
+}
+
+.hint {
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 13px;
+}
+
+/* Preview */
+.preview .canvas-wrap {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.preview canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.empty {
+  color: var(--text-dim);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Thumbnail grid */
+.count {
+  color: var(--text-dim);
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+
+.thumb-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+.thumb {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px;
+  overflow: hidden;
+}
+
+.thumb img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+}
+
+.thumb-name {
+  font-size: 11px;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Process panel */
+.process {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button.primary {
+  appearance: none;
+  border: none;
+  background: var(--accent-strong);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  padding: 13px 18px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+button.primary:hover:not(:disabled) {
+  background: var(--accent);
+}
+
+button.primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Progress bar */
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-label {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.progress-track {
+  height: 10px;
+  background: var(--surface-2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent-strong);
+  transition: width 0.2s ease;
+}
